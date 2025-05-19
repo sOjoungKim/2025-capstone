@@ -7,6 +7,7 @@ import os
 import xml.etree.ElementTree as ET
 from io import BytesIO
 import zipfile
+from dotenv import load_dotenv
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -21,7 +22,7 @@ from tqdm import tqdm
 from datetime import datetime
 
 # DART API 관련 설정
-DART_API_KEY = "57ffb9ff9bb49909a705b746865ae8dd480ece8a"
+DART_API_KEY = os.getenv("DART_API_KEY")
 bsns_year = "2024"
 reprt_code = "11011"
 fs_div = "CFS"
