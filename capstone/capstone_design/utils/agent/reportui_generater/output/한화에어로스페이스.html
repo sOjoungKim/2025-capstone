@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>한화에어로스페이스 리포트</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #e4e4e4, #ffffff);
+      display: flex;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      margin: 2em 1em;
+      height: calc(100vh - 4em);
+      box-sizing: border-box;
+      overflow-y: auto;
+      border-radius: 0.5px;
+      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-section {
+      width: 100%;
+      padding: 1.5em 2em;
+      box-sizing: border-box;
+    }
+
+    .title-section {
+      background-color: #468ecd;
+      color: white;
+    }
+
+    .opinion-section {
+      background-color: #202fa1;
+      color: white;
+    }
+
+    .image-section h2 {
+      font-size: 24px;
+      color: #222;
+      margin-bottom: 1em;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .image-toggle {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      background-color: #f9f9f9;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .image-toggle[open] {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-toggle summary {
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #e0ecf8;
+      padding: 12px 16px;
+      border-bottom: 1px solid #ccc;
+      transition: background-color 0.2s ease;
+    }
+
+    .image-toggle summary:hover {
+      background-color: #d0def0;
+    }
+
+    .image-group {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background-color: white;
+    }
+
+    .image-group img {
+      width: 100%;
+      max-width: 700px;
+      margin: 10px auto;
+      display: block;
+      object-fit: contain;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .image-group img:hover {
+      transform: scale(1.05);
+    }
+
+    .editor-container {
+      width: 70%;
+      background-color: #fff;
+      margin: 2em 1em;
+      padding: 2em;
+      border-radius: 0.5px;
+      box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      height: calc(100vh - 4em);
+      box-sizing: border-box;
+    }
+
+    .memo-editable {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      border: none;
+      background: transparent;
+      font-size: 1em;
+    }
+
+    h1 { font-size: 45px; margin-bottom: 0.5em; }
+    h2 { font-size: 32px; margin-bottom: 0.4em; }
+    h3 { font-size: 25px; margin-bottom: 0.3em; }
+
+    .editor-container p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 1em;
+      color: #333;
+    }
+
+    strong {
+      color: #66ff25;
+    }
+
+    strong, em, a, ul, li {
+      all: revert;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 80%;
+      max-height: 80%;
+      box-shadow: 0 2px 10px rgba(255,255,255,0.2);
+      animation: zoom 0.3s;
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.7)}
+      to {transform: scale(1)}
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 45px;
+      color: #ffffff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="sidebar-section title-section">
+      <h1>한화에어로스페이스</h1>
+    </div>
+    <div class="sidebar-section opinion-section">
+      <h2>매수</h2>
+    </div>
+
+    <div class="sidebar-section image-section">
+      <h2>지표별 분석 이미지</h2>
+      
+    </div>
+  </div>
+
+  <div class="editor-container">
+    <div id="editor" class="memo-editable"># 한화에어로스페이스 리포트
+## 우주항공과 지속가능경영의 선두주자: 한화에어로스페이스
+
+## 1. 거시경제 분석:
+한화에어로스페이스의 주가와 KOSPI/KOSDAQ 지수 간의 상관관계는 0.4065로, 통계적으로 유의미한 양의 상관관계를 보입니다(p_value=0.0000). 이는 한화에어로스페이스의 주가가 국내 주식시장 전반의 흐름과 동조화되는 경향이 있음을 시사합니다. 반면, WTI유가, 국고채 10년, USD/KRW, 외국인 매매와의 상관관계는 유의미하지 않으며, 이는 해당 변수들이 한화에어로스페이스의 주가에 직접적인 영향을 미치지 않는다는 것을 의미합니다. 이러한 분석을 통해 한화에어로스페이스는 국내 주식시장 전반의 흐름에 영향을 받지만, 개별적인 거시경제 지표의 변동에는 상대적으로 독립적임을 알 수 있습니다. [중립]
+
+## 2. 산업분석:
+한화에어로스페이스가 속한 산업의 최근 PER은 29.91에서 71.80까지 변동하며, 이는 산업 내에서의 평가가 다소 고평가될 가능성을 시사합니다. 특히, 2025년 3월과 4월의 PER이 58.78과 71.80으로 급등한 것은 주목할 만합니다. 이는 산업 내에서의 기대감이 높아졌거나, 실적 대비 주가가 과도하게 상승했을 가능성을 내포합니다. 산업 감성 분석에서는 긍정적 의견이 41건, 부정적 의견이 17건으로 긍정적 의견이 우세하지만, 중립적 의견이 87건으로 가장 많아 전반적으로 신중한 접근이 필요함을 시사합니다. [중립]
+
+## 3. 기업분석:
+한화에어로스페이스의 재무지표를 살펴보면, 부채비율이 2023년 317.21%에서 2024년 281.34%로 감소했으나 여전히 높은 수준을 유지하고 있어 재무위험 신호로 간주됩니다. 유동비율은 2023년 76.11%에서 2024년 89.62%로 개선되었으나, 여전히 80% 미만으로 단기 지급능력에 대한 우려가 존재합니다. ROE는 2023년 20.86%에서 2024년 22.35%로 증가하여 수익성 측면에서는 긍정적입니다. 그러나 영업이익률이 2023년 7.53%에서 2024년 15.41%로 증가한 점은 긍정적이나, FCF가 지속적으로 적자를 기록하고 있어 현금흐름 위험이 존재합니다. 기업 감성 분석에서는 긍정적 의견이 42건, 부정적 의견이 10건으로 긍정적 의견이 우세합니다. [중립]
+
+## 4. 최종 종합 판단
+한화에어로스페이스는 우주항공과 국방 부문에서의 선두주자로서, 최근 미국 해병대 훈련장에서의 성공적인 무인차량 시험과 루마니아 자주포 사업 수주 가능성 등 긍정적인 뉴스가 주가 상승세를 견인하고 있습니다. 또한, 지속가능경영 평가에서 우수기업으로 선정된 점은 장기적인 성장 가능성을 높이는 요소입니다. 그러나 높은 부채비율과 유동비율의 문제는 여전히 재무적 리스크로 작용할 수 있습니다. 이러한 점을 종합적으로 고려할 때, 한화에어로스페이스에 대한 투자 의견은 '매수'로 판단됩니다. 이는 매수 60%, 보유 30%, 매도 10%의 비율로 제시할 수 있습니다. 주가 상승세와 수주 가능성, 지속가능경영 인정 등의 긍정적 요소가 있지만, 재무적 리스크를 감안하여 신중한 접근이 필요합니다.</div>
+  </div>
+
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImg">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const editor = document.getElementById('editor');
+      const raw = editor.textContent;
+      editor.innerHTML = marked.parse(raw);
+
+      const modal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImg");
+      const closeBtn = document.getElementsByClassName("close")[0];
+
+      document.querySelectorAll(".popup-img").forEach(img => {
+        img.addEventListener("click", function (event) {
+          event.preventDefault();
+          modal.style.display = "block";
+          modalImg.src = this.src;
+        });
+      });
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      modal.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+    });
+  </script>
+</body>
+</html>

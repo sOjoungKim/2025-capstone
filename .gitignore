@@ -1,2 +1,4 @@
 # .env 파일을 Git에서 제외
 .env
+
+history
